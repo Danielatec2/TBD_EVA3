@@ -1,0 +1,127 @@
+EVA3_2_IF_ELSE
+MySQL Shell 8.0.37
+
+Copyright (c) 2016, 2024, Oracle and/or its affiliates.
+Oracle is a registered trademark of Oracle Corporation and/or its affiliates.
+Other names may be trademarks of their respective owners.
+
+Type '\help' or '\?' for help; '\quit' to exit.
+ MySQL  JS > \sql
+Switching to SQL mode... Commands end with ;
+ MySQL  SQL > \connect --mc root@localhost
+Creating a Classic session to 'root@localhost'
+Fetching global names for auto-completion... Press ^C to stop.
+Your MySQL connection id is 20
+Server version: 8.0.37 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+ MySQL  localhost:3306 ssl  SQL > create databases tbd_eva3;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'databases tbd_eva3' at line 1
+ MySQL  localhost:3306 ssl  SQL > create database tbd_eva3;
+Query OK, 1 row affected (0.0200 sec)
+ MySQL  localhost:3306 ssl  SQL > show databases;
++--------------------+
+| Database           |
++--------------------+
+| empresa2           |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| tbd_e1             |
+| tbd_e2             |
+| tbd_eva3           |
+| vet                |
+| veterinaria        |
+| world              |
++--------------------+
+12 rows in set (0.0022 sec)
+ MySQL  localhost:3306 ssl  SQL > use eva tbd_eva3;
+Incorrect number of arguments for use command, usage:
+\use <schema_name>
+ MySQL  localhost:3306 ssl  SQL > use database tbd_eva3;
+Incorrect number of arguments for use command, usage:
+\use <schema_name>
+ MySQL  localhost:3306 ssl  SQL > use tbd_eva3;
+Default schema set to `tbd_eva3`.
+Fetching global names, object names from `tbd_eva3` for auto-completion... Press ^C to stop.
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > select comparar_numeros(3,1)
+                                         -> ;
++-----------------------+
+| comparar_numeros(3,1) |
++-----------------------+
+| MAYOR                 |
++-----------------------+
+1 row in set (0.0053 sec)
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > select comparar_numeros(28,3);
++------------------------+
+| comparar_numeros(28,3) |
++------------------------+
+| MAYOR                  |
++------------------------+
+1 row in set (0.0012 sec)
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > select comparar_numeros(2,33);
++------------------------+
+| comparar_numeros(2,33) |
++------------------------+
+| MENOR                  |
++------------------------+
+1 row in set (0.0006 sec)
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > select comparar_numeros(33,33);
++-------------------------+
+| comparar_numeros(33,33) |
++-------------------------+
+| IGUAL                   |
++-------------------------+
+1 row in set (0.0010 sec)
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > selct mod(5,3)
+                                         -> ;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selct mod(5,3)' at line 1
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > select mod(5,3) ;
++----------+
+| mod(5,3) |
++----------+
+|        2 |
++----------+
+1 row in set (0.0026 sec)
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > select es_par(5,3);
+ERROR: 1318 (42000): Incorrect number of arguments for FUNCTION tbd_eva3.es_par; expected 1, got 2
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > select es_par(5,3);
+ERROR: 1318 (42000): Incorrect number of arguments for FUNCTION tbd_eva3.es_par; expected 1, got 2
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > select es_par(5);
++-----------+
+| es_par(5) |
++-----------+
+| ES IMPAR  |
++-----------+
+1 row in set (0.0008 sec)
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > select es_par(2);
++-----------+
+| es_par(2) |
++-----------+
+| ES PAR    |
++-----------+
+1 row in set (0.0005 sec)
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > select dia_semana(3);
++---------------+
+| dia_semana(3) |
++---------------+
+|  MARTES       |
++---------------+
+1 row in set (0.0040 sec)
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > select conversion_temperatura(1,10);
+ERROR: 1339 (20000): Case not found for CASE statement
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > select conversion_temperatura(1,10);
+ERROR: 1339 (20000): Case not found for CASE statement
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > select conversion_temperatura(2,50);
+ERROR: 1339 (20000): Case not found for CASE statement
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > select conversion_temperatura(2,50);
+ERROR: 1339 (20000): Case not found for CASE statement
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > select conversion_temperatura(2,50);
++------------------------------+
+| conversion_temperatura(2,50) |
++------------------------------+
+| -223                         |
++------------------------------+
+1 row in set (0.0012 sec)
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL >
